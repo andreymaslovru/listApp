@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Vue+TS</title>
+    <link rel="stylesheet" href="./theme.css" />
+  </head>
+  <body>
+    <div class="container" id="app">
+      <div class="card">
+        <h1 class="card__title">Счетчик: {{ counter }}</h1>
+        <div class="btn-group">
+          <button class="btn" @click="counter++">Добавить</button>
+          <button class="btn" @click="counter--">Уменьшить</button>
+          <button class="btn" @click="counter = 0">Очистить</button>
+        </div>
+      </div>
+
+      <!-- list  -->
+
+      <div class="list">
+        <h1>{{ listTitle }}</h1>
+        <input
+          type="text"
+          placeholder="Введите новую задачу"
+          :value="valueInput"
+          @input="getValueInput"
+        />
+        <button class="btn" @click="sendList">Создать</button>
+        <div class="list__item">
+          <h2>valueInput: {{ valueInput }}</h2>
+        </div>
+        <ul>
+          <li></li>
+          <li>2</li>
+        </ul>
+      </div>
+    </div>
+
+    <script src="https://unpkg.com/vue@next"></script>
+    <script src="main.js"></script>
+  </body>
+</html>
