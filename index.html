@@ -27,14 +27,18 @@
           placeholder="Введите новую задачу"
           :value="valueInput"
           @input="getValueInput"
+          @keypress="listenPressKey"
         />
         <button class="btn" @click="sendList">Создать</button>
         <div class="list__item">
           <h2>valueInput: {{ valueInput }}</h2>
+          <span v-if="sendingVal == 0">Заметок нет. Создай новую</span>
         </div>
-        <ul>
-          <li></li>
-          <li>2</li>
+        <ul class="listapp">
+          <li class="list-item" v-for="(myNote, index) in sendingVal">
+            {{ index + 1 }} - {{ myNote }}
+            <button class="btn" @click="deleteList(index)">Удалить</button>
+          </li>
         </ul>
       </div>
     </div>
